@@ -34,7 +34,8 @@ def sign_in(email, password) -> bool:
             return True
         return False
     except Exception as e:
-        st.error(f"Sign in failed: {str(e)}")
+        if config.show_errors():
+            st.error(f"Sign in failed: {str(e)}")
         return False
 
 def sign_up(email, password, username, full_name) -> bool:
@@ -71,7 +72,8 @@ def sign_up(email, password, username, full_name) -> bool:
             return True
         return False
     except Exception as e:
-        st.error(f"Sign up failed: {str(e)}")
+        if config.show_errors():
+            st.error(f"Sign up failed: {str(e)}")
         return False
 
 def sign_out():
@@ -91,30 +93,52 @@ def render_auth_ui():
     """Renders the Login / Register UI on the main screen."""
     init_auth_state()
     
-    # Inject global styles
+    # Inject custom CSS for light theme
     st.markdown(utiles.get_custom_css(), unsafe_allow_html=True)
+    
+    # Set light theme background
+    st.markdown("""
+<style>
+.stApp {
+    background-color: #fafafa;
+}
+[data-testid="stAppViewBlockContainer"] {
+    background-color: #fafafa;
+    padding-top: 0.5rem !important;
+}
+[data-testid="stSidebar"] {
+    background-color: #f1f5f9;
+}
+[data-testid="stSidebarContent"] {
+    background-color: #f1f5f9;
+}
+[data-testid="stMainBlockContainer"] {
+    background-color: #fafafa;
+    padding-top: 0.5rem !important;
+}
+[data-testid="stVerticalBlock"] {
+    background-color: #fafafa;
+}
+[data-testid="stBlock"] {
+    background-color: #fafafa;
+}
+</style>
+""", unsafe_allow_html=True)
     
     # Center the login panel
     col_left, col_center, col_right = st.columns([1, 1.8, 1])
     
     with col_center:
-        st.markdown("""
-            <div style='text-align: center; margin-top: 3rem; margin-bottom: 2rem;'>
-                <h1 style='font-size: 2.8rem; font-weight: 700; background: linear-gradient(135deg, #a78bfa, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;'>
-                    DocuExtract POC
-                </h1>
-                <p style='color: #cbd5e1; font-size: 1rem; margin-top: 0.5rem;'>
-                    Extract structured details from documents with AI
-                </p>
-            </div>
-        """, unsafe_allow_html=True)
+        st.title("DocuExtract POC")
+        st.caption("Extract structured details from documents with AI")
+        st.markdown("---")
         
-        tab_login, tab_signup = st.tabs(["🔑 Sign In", "📝 Create Account"])
+        tab_login, tab_signup = st.tabs(["Sign In", "Create Account"])
         
         with tab_login:
             with st.form("login_form"):
-                email = st.text_input("Email Address", placeholder="your.email@example.com")
-                password = st.text_input("Password", type="password", placeholder="••••••••")
+                email = st.text_input("Email Address")
+                password = st.text_input("Password", type="password")
                 submit = st.form_submit_button("Sign In", use_container_width=True)
                 
                 if submit:
@@ -129,10 +153,10 @@ def render_auth_ui():
     
         with tab_signup:
             with st.form("signup_form"):
-                new_email = st.text_input("Email Address", placeholder="name@example.com")
-                new_password = st.text_input("Choose Password", type="password", placeholder="At least 6 characters")
-                new_username = st.text_input("Username", placeholder="johndoe")
-                new_fullname = st.text_input("Full Name", placeholder="John Doe")
+                new_email = st.text_input("Email Address")
+                new_password = st.text_input("Choose Password", type="password")
+                new_username = st.text_input("Username")
+                new_fullname = st.text_input("Full Name")
                 
                 submit_signup = st.form_submit_button("Sign Up", use_container_width=True)
                 

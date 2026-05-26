@@ -27,3 +27,7 @@ def is_config_valid() -> bool:
 def is_ollama_enabled() -> bool:
     val = get_env_var("ollama").strip().lower()
     return val in ["true", "ture", "1", "yes"]
+
+def show_errors() -> bool:
+    val = get_env_var("SHOW_ERRORS", "false").strip().lower()
+    return val in ["true", "ture", "1", "yes"]

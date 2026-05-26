@@ -73,13 +73,14 @@ def get_custom_css() -> str:
         --primary: #8b5cf6;
         --primary-hover: #7c3aed;
         --secondary: #d946ef;
-        --bg-dark: #0f111a;
-        --text-main: #f1f5f9;
-        --text-muted: #94a3b8;
+        --bg-dark: #fafafa;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
     }
     
     html, body, [class*="css"] {
         font-family: 'Outfit', 'Inter', sans-serif !important;
+        font-size: 1rem !important;
     }
     
     /* Scrollbars */
@@ -88,14 +89,14 @@ def get_custom_css() -> str:
         height: 8px;
     }
     ::-webkit-scrollbar-track {
-        background: rgba(0, 0, 0, 0.15);
+        background: rgba(0, 0, 0, 0.05);
     }
     ::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.2);
         border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.3);
     }
     
     /* Title text gradient */
@@ -110,12 +111,12 @@ def get_custom_css() -> str:
     
     /* Navigation styling */
     .sidebar-user {
-        padding: 1.25rem;
-        background: rgba(255, 255, 255, 0.02);
+        padding: 1.5rem;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(217, 70, 239, 0.04));
         border-radius: 16px;
         margin-bottom: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.08);
     }
     
     /* Style radio group for navigation */
@@ -130,84 +131,97 @@ def get_custom_css() -> str:
     
     div[data-testid="stRadio"] div[role="radiogroup"] {
         gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.01) !important;
-        border: 1px solid rgba(255, 255, 255, 0.04) !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid rgba(139, 92, 246, 0.1) !important;
         border-radius: 12px;
         padding: 0.6rem !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
     }
     
     div[data-testid="stRadio"] div[role="radiogroup"] label {
-        padding: 0.55rem 0.85rem !important;
+        padding: 0.75rem 1rem !important;
         border-radius: 8px !important;
         background-color: transparent !important;
         border: 1px solid transparent !important;
         transition: all 0.2s ease !important;
-        color: #cbd5e1 !important;
-        font-size: 0.92rem !important;
+        color: #475569 !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
     }
     
     div[data-testid="stRadio"] div[role="radiogroup"] label:hover {
-        background-color: rgba(255, 255, 255, 0.03) !important;
-        border-color: rgba(255, 255, 255, 0.05) !important;
+        background-color: rgba(139, 92, 246, 0.08) !important;
+        border-color: rgba(139, 92, 246, 0.15) !important;
     }
     
     div[data-testid="stRadio"] div[role="radiogroup"] label[data-checked="true"] {
-        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(217, 70, 239, 0.03)) !important;
-        border: 1px solid rgba(139, 92, 246, 0.25) !important;
-        color: #f1f5f9 !important;
-        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.05) !important;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(217, 70, 239, 0.06)) !important;
+        border: 1px solid rgba(139, 92, 246, 0.2) !important;
+        color: #8b5cf6 !important;
+        font-weight: 600 !important;
+        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15) !important;
+    }
+    
+    /* Sidebar divider */
+    [data-testid="stSidebar"] > div:first-child > div > div > div > hr {
+        border-color: rgba(139, 92, 246, 0.1) !important;
+        margin: 1.5rem 0 !important;
     }
     
     /* Custom container borders styling (cards) */
     div[data-testid="stVerticalBlockBorderWrapper"] {
-        background: rgba(15, 17, 26, 0.45) !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9)) !important;
+        border: 1px solid rgba(139, 92, 246, 0.08) !important;
         border-radius: 16px !important;
         padding: 1.5rem !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
         margin-bottom: 1.25rem !important;
         backdrop-filter: blur(8px) !important;
+        font-size: 1rem !important;
     }
     div[data-testid="stVerticalBlockBorderWrapper"]:hover {
-        border-color: rgba(139, 92, 246, 0.22) !important;
-        background: rgba(15, 17, 26, 0.65) !important;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+        border-color: rgba(139, 92, 246, 0.15) !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95)) !important;
+        box-shadow: 0 8px 30px rgba(139, 92, 246, 0.08) !important;
     }
     
     /* File Uploader styling */
     [data-testid="stFileUploader"] {
-        background-color: rgba(15, 17, 26, 0.25) !important;
-        border: 2px dashed rgba(139, 92, 246, 0.25) !important;
+        background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.85)) !important;
+        border: 1px solid rgba(139, 92, 246, 0.1) !important;
         border-radius: 16px !important;
         padding: 1.75rem !important;
         transition: all 0.3s ease !important;
+        font-size: 1rem !important;
     }
     [data-testid="stFileUploader"]:hover {
-        border-color: rgba(217, 70, 239, 0.6) !important;
-        background-color: rgba(139, 92, 246, 0.04) !important;
+        border-color: rgba(139, 92, 246, 0.2) !important;
+        background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(241, 245, 249, 0.9)) !important;
     }
     
     /* Forms styling */
     [data-testid="stForm"] {
-        background: rgba(15, 17, 26, 0.5) !important;
-        border: 1px solid rgba(139, 92, 246, 0.15) !important;
-        border-radius: 20px !important;
-        padding: 2.25rem !important;
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9)) !important;
+        border: 1px solid rgba(139, 92, 246, 0.08) !important;
+        border-radius: 16px !important;
+        padding: 1.75rem !important;
+        box-shadow: 0 8px 30px rgba(139, 92, 246, 0.06) !important;
         backdrop-filter: blur(12px) !important;
+        font-size: 1rem !important;
     }
     
     /* Input fields overrides */
     div[data-baseweb="input"] {
-        background-color: rgba(255, 255, 255, 0.02) !important;
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        border-radius: 10px !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.85)) !important;
+        border: 1px solid rgba(139, 92, 246, 0.08) !important;
+        border-radius: 8px !important;
         transition: all 0.3s ease !important;
+        font-size: 1rem !important;
     }
     div[data-baseweb="input"]:focus-within {
-        border-color: #8b5cf6 !important;
-        background-color: rgba(139, 92, 246, 0.03) !important;
-        box-shadow: 0 0 10px rgba(139, 92, 246, 0.15) !important;
+        border-color: rgba(139, 92, 246, 0.2) !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9)) !important;
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.1) !important;
     }
     
     /* Tabs styling */
@@ -215,13 +229,13 @@ def get_custom_css() -> str:
         font-size: 0.95rem !important;
         font-weight: 600 !important;
         color: var(--text-muted) !important;
-        border-bottom: 2px solid transparent !important;
+        border-bottom: none !important;
         transition: all 0.3s ease !important;
         padding: 0.6rem 1.5rem !important;
     }
     button[data-baseweb="tab"][aria-selected="true"] {
         color: #c084fc !important;
-        border-bottom: 2px solid #8b5cf6 !important;
+        border-bottom: none !important;
         font-weight: 700 !important;
     }
     
@@ -245,7 +259,7 @@ def get_custom_css() -> str:
     /* Secondary buttons styling */
     button[data-testid="baseButton-secondary"] {
         background-color: rgba(255, 255, 255, 0.03) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border: none !important;
         color: #cbd5e1 !important;
         border-radius: 12px !important;
         font-weight: 500 !important;
@@ -253,22 +267,22 @@ def get_custom_css() -> str:
     }
     button[data-testid="baseButton-secondary"]:hover {
         background-color: rgba(255, 255, 255, 0.08) !important;
-        border-color: rgba(139, 92, 246, 0.4) !important;
+        border-color: transparent !important;
         color: #ffffff !important;
     }
     
     /* Popover UI adjustments */
     div[data-testid="stPopoverBody"] {
-        background-color: #0d0e15 !important;
-        border: 1px solid rgba(139, 92, 246, 0.2) !important;
+        background-color: #ffffff !important;
+        border: none !important;
         border-radius: 16px !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
     }
     
     /* Document Preview styling */
     .document-preview-container {
-        background-color: #0a0b10;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background-color: #f8fafc;
+        border: none;
         border-radius: 12px;
         padding: 1.25rem;
         max-height: 350px;
@@ -280,7 +294,7 @@ def get_custom_css() -> str:
         word-wrap: break-word;
         font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
         font-size: 0.85rem;
-        color: #cbd5e1;
+        color: #475569;
         line-height: 1.6;
     }
     
@@ -288,15 +302,15 @@ def get_custom_css() -> str:
     .empty-state-container {
         text-align: center;
         margin-top: 3rem;
-        border: 2px dashed rgba(139, 92, 246, 0.2);
+        border: none;
         border-radius: 20px;
         padding: 4.5rem 2rem;
-        background: rgba(139, 92, 246, 0.005);
+        background: rgba(248, 250, 252, 0.8);
         transition: all 0.3s ease;
     }
     .empty-state-container:hover {
-        border-color: rgba(217, 70, 239, 0.4);
-        background: rgba(139, 92, 246, 0.015);
+        border-color: transparent;
+        background: rgba(139, 92, 246, 0.05);
     }
     .empty-state-icon {
         font-size: 3.8rem;
@@ -313,17 +327,17 @@ def get_custom_css() -> str:
     .extraction-loader {
         text-align: center;
         padding: 4.5rem 2rem;
-        background: rgba(15, 17, 26, 0.6);
-        border: 1px solid rgba(139, 92, 246, 0.2);
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
         border-radius: 20px;
         margin: 2rem 0;
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(10px);
     }
     .loader-spinner {
         width: 55px;
         height: 55px;
-        border: 4px solid rgba(255, 255, 255, 0.06);
+        border: 4px solid rgba(0, 0, 0, 0.1);
         border-top-color: #d946ef;
         border-radius: 50%;
         margin: 0 auto 1.5rem auto;
@@ -332,14 +346,14 @@ def get_custom_css() -> str:
     }
     .loader-title {
         margin: 0 0 0.5rem 0;
-        color: #f1f5f9;
+        color: #1e293b;
         font-weight: 700;
         font-size: 1.25rem;
         letter-spacing: -0.01em;
     }
     .loader-desc {
         margin: 0;
-        color: #94a3b8;
+        color: #64748b;
         font-size: 0.92rem;
         max-width: 80%;
         margin: 0 auto;
@@ -351,19 +365,21 @@ def get_custom_css() -> str:
     
     /* Metric Cards */
     .metric-card {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.002));
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-        padding: 1.75rem 1.5rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+        border: 1px solid rgba(139, 92, 246, 0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
         text-align: center;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.06);
         transition: all 0.3s ease;
         margin-bottom: 1rem;
+        font-size: 1rem;
     }
     .metric-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(139, 92, 246, 0.35);
-        box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
+        transform: translateY(-2px);
+        border-color: rgba(139, 92, 246, 0.2);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95));
+        box-shadow: 0 8px 25px rgba(139, 92, 246, 0.1);
     }
     .metric-icon {
         font-size: 2rem;
@@ -393,25 +409,26 @@ def get_custom_css() -> str:
         margin-top: 1rem;
     }
     .report-header-card {
-        background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(217, 70, 239, 0.04));
-        border: 1px solid rgba(139, 92, 246, 0.25);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+        border: 1px solid rgba(139, 92, 246, 0.1);
         border-radius: 16px;
         padding: 1.5rem;
         display: flex;
         align-items: center;
         gap: 1.25rem;
-        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.05);
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.06);
+        font-size: 1rem;
     }
     .report-header-icon {
         font-size: 2.25rem;
-        background: rgba(255, 255, 255, 0.03);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(217, 70, 239, 0.05));
         width: 60px;
         height: 60px;
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(139, 92, 246, 0.15);
     }
     .report-header-label {
         font-size: 0.75rem;
@@ -422,14 +439,14 @@ def get_custom_css() -> str:
     }
     .report-header-title {
         font-size: 1.4rem;
-        color: #f1f5f9;
+        color: #1e293b;
         font-weight: 700;
         margin: 0.25rem 0 0 0 !important;
     }
     .report-section-title {
         font-size: 0.95rem;
         font-weight: 700;
-        color: #f1f5f9;
+        color: #1e293b;
         text-transform: uppercase;
         letter-spacing: 0.05em;
         margin-top: 0.5rem;
@@ -440,8 +457,8 @@ def get_custom_css() -> str:
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 1rem;
-        background: rgba(255, 255, 255, 0.01);
-        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: rgba(248, 250, 252, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.04);
         border-radius: 16px;
         padding: 1.25rem;
     }
@@ -459,7 +476,7 @@ def get_custom_css() -> str:
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid rgba(139, 92, 246, 0.15);
+        border: 1px solid rgba(139, 92, 246, 0.2);
         flex-shrink: 0;
     }
     .contact-icon {
@@ -473,13 +490,13 @@ def get_custom_css() -> str:
     }
     .contact-item-label {
         font-size: 0.7rem;
-        color: #71717a;
+        color: #64748b;
         text-transform: uppercase;
         font-weight: 600;
     }
     .contact-item-value {
         font-size: 0.85rem;
-        color: #e4e4e7;
+        color: #1e293b;
         font-weight: 500;
         white-space: nowrap;
         overflow: hidden;
@@ -495,14 +512,14 @@ def get_custom_css() -> str:
         text-decoration: underline;
     }
     .report-text-block-card {
-        background: rgba(255, 255, 255, 0.015);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(248, 250, 252, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.06);
         border-radius: 14px;
         padding: 1.25rem;
     }
     .report-text-paragraph {
         font-size: 0.92rem;
-        color: #cbd5e1;
+        color: #475569;
         line-height: 1.6;
         margin: 0;
     }
@@ -512,8 +529,8 @@ def get_custom_css() -> str:
         gap: 0.85rem;
     }
     .flat-field-card {
-        background: rgba(255, 255, 255, 0.01);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(248, 250, 252, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.05);
         border-radius: 12px;
         padding: 1rem;
         display: flex;
@@ -522,13 +539,13 @@ def get_custom_css() -> str:
     }
     .flat-field-label {
         font-size: 0.7rem;
-        color: #71717a;
+        color: #64748b;
         text-transform: uppercase;
         font-weight: 600;
     }
     .flat-field-value {
         font-size: 0.95rem;
-        color: #f4f4f5;
+        color: #1e293b;
         font-weight: 600;
     }
     .report-badge-container {
@@ -537,14 +554,14 @@ def get_custom_css() -> str:
         gap: 0.5rem;
     }
     .report-badge-pill {
-        background: rgba(139, 92, 246, 0.08);
-        border: 1px solid rgba(139, 92, 246, 0.2);
-        color: #c084fc;
+        background: rgba(139, 92, 246, 0.12);
+        border: 1px solid rgba(139, 92, 246, 0.25);
+        color: #8b5cf6;
         padding: 0.35rem 0.85rem;
         border-radius: 20px;
         font-size: 0.82rem;
         font-weight: 500;
-        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.03);
+        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.08);
         transition: all 0.25s ease;
     }
     .report-badge-pill:hover {
@@ -573,34 +590,34 @@ def get_custom_css() -> str:
         height: 10px;
         background: #8b5cf6;
         border-radius: 50%;
-        border: 2px solid #0f111a;
+        border: 2px solid #ffffff;
         box-shadow: 0 0 8px #8b5cf6;
     }
     .timeline-card-content {
-        background: rgba(255, 255, 255, 0.01);
-        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: rgba(248, 250, 252, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.04);
         border-radius: 14px;
         padding: 1.15rem;
         transition: all 0.25s ease;
     }
     .timeline-card-content:hover {
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255, 255, 255, 0.95);
         border-color: rgba(139, 92, 246, 0.2);
     }
     .timeline-card-title {
         font-size: 1rem;
         font-weight: 600;
-        color: #f4f4f5;
+        color: #1e293b;
         margin: 0 !important;
     }
     .timeline-card-subtitle {
         font-size: 0.82rem;
-        color: #a1a1aa;
+        color: #64748b;
         margin-top: 0.35rem;
     }
     .timeline-card-desc {
         font-size: 0.88rem;
-        color: #cbd5e1;
+        color: #475569;
         line-height: 1.5;
         margin: 0.75rem 0 0 0 !important;
     }
@@ -610,15 +627,15 @@ def get_custom_css() -> str:
         gap: 0.5rem;
         margin-top: 0.75rem;
         padding-top: 0.75rem;
-        border-top: 1px dashed rgba(255, 255, 255, 0.05);
+        border-top: 1px dashed rgba(0, 0, 0, 0.05);
     }
     .timeline-card-extra-item {
         font-size: 0.78rem;
-        color: #a1a1aa;
-        background: rgba(255, 255, 255, 0.02);
+        color: #64748b;
+        background: rgba(248, 250, 252, 0.8);
         padding: 0.2rem 0.5rem;
         border-radius: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.04);
     }
     .dict-fields-grid {
         display: grid;
